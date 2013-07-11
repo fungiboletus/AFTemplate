@@ -9,7 +9,7 @@
 
 	// Moustache.js escapeHTML function
 	function escapeHTML(string) { 
-		return string.replace(/&(?!\w+;)|[<>"']/g, function (s) {
+		return String(string).replace(/&(?!\w+;)|[<>"']/g, function (s) {
 			return escapeMap[s] || s;
 		});
 	}
