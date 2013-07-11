@@ -3,26 +3,26 @@ AFTemplate
 
 Simple JavaScript template engine.
 
+* JSP like syntax
 * Small (427bytes with minification and gzip)
 * Fast (like others small templates engines)
-* JSP like syntax
 * Quick and dirty <3
 
 ## Usage
 ```javascript
-var tpl = AFTemplate("Hello <%= name %>"),
+var tpl = AFTemplate("Hello {%= name %}"),
     html = tpl({name: "world"});
 
 // or 
-var html = AFTemplate("Hello <%= name %>")({name: "world"});
+var html = AFTemplate("Hello {%= name %}")({name: "world"});
 ```
 
 ```jsp
 <script id="numbers" type="text/html">
 <ul>
-  <% for (var i = start; i <= end; ++i) { %>
-    <li><%= i %></li>
-  <% } %>
+  {% for (var i = start; i <= end; ++i) { %}
+    <li>{%= i %}</li>
+  {% } %}
 </ul>
 </script>
 ```
@@ -34,10 +34,10 @@ var html = AFT("numbers", {start: 1, end: 10});
 ```javascript
 // Possibility to escape HTML
 
-AFTemplate("Hello <%= name %>")({name: "<i>"});
+AFTemplate("Hello {%= name %}")({name: "<i>"});
 // => "Hello <i>"
 
-AFTemplate("Hello <%# name %>")({name: "<i>"});
+AFTemplate("Hello {%# name %}")({name: "<i>"});
 // => Hello "&lt;i&gt;"
 
 ```

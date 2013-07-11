@@ -30,8 +30,8 @@
 		return "out += \"" + 
 			tpl.replace(/"/g, "\\\"").
 			replace(/\n/g, "\\n").
-			replace(/<%(=|#)([\s\S]*?)%>/g, transformEcho).
-			replace(/<%([\s\S]*?)%>/g, transformJavaScript) + "\";\n";
+			replace(/\{%(=|#)([\s\S]*?)%\}/g, transformEcho).
+			replace(/\{%([\s\S]*?)%\}/g, transformJavaScript) + "\";\n";
 	}
 
 	this.AFTemplate = function Template(tpl) {
