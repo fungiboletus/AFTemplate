@@ -31,6 +31,17 @@ var html = AFTemplate("Hello <%= name %>")({name: "world"});
 var html = AFT("numbers", {start: 1, end: 10});
 ```
 
+```javascript
+// Possibility to escape HTML
+
+AFTemplate("Hello <%= name %>")({name: "<i>"});
+// => "Hello <i>"
+
+AFTemplate("Hello <%# name %>")({name: "<i>"});
+// => Hello "&lt;i&gt;"
+
+```
+
 ## Browsers comptability
 It seems that it's working on the majority of navigators, including IE6 and Safari mobile.
 
